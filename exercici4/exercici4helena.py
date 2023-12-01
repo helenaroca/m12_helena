@@ -7,7 +7,7 @@ def separador(exercici, descripcio = None):
     print("#")
     print("#" * 25)
     print("\n")
-# ###############################
+# ############################### alex
 '''
 # ###############################
 separador(1, "Tu tarea es escribir una calculadora de impuestos")
