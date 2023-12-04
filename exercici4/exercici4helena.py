@@ -223,4 +223,6 @@ while True:
         break
 byte3 = int(input("Dime el tercer byte: "))
 byte4 = int(input("Dime el cuarto byte: "))
-print (f"la ip {byte1} {byte2} {byte3} {byte4} {type} y {tipus}")
+print(("la ip és")) 
+print((byte1), byte2, byte3, byte4, sep=".") 
+print((type), ("y"), (tipus))
