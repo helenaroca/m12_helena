@@ -7,8 +7,8 @@ def separador(exercici, descripcio = None):
     print("#")
     print("#" * 25)
     print("\n")
-# ############################### alex
-'''
+# ############################### 
+
 # ###############################
 separador(1, "Tu tarea es escribir una calculadora de impuestos")
 income = float(input("Introduce el ingreso anual: "))
@@ -184,39 +184,43 @@ print("Ingredientes:")
 for ingrediente in ingredientes:
     print("- " + ingrediente)
 # ###############################
-'''
+
 # ###############################
 separador(11, "un programa que solicite una IP i determine qué clase es y si es pública o privada")
 
 while True:
-    byte1 = int(input("Dime un byte: "))
+    byte1 = int(input("Dime el primer byte: "))
     if byte1 <= 127:
-        print ("és type A")
+        type = "és type A"
         break
     elif byte1 <= 191:
-        print("és type B")
+        type = "és type B"
         break
     elif byte1 <= 223:
-        print("és type C")
+        type = "és type C"
         break
     elif byte1 <= 239:
-        print("és type D")
+        type = "és type D"
         break
     elif byte1 <= 247:
-        print("és type E")
+        type = "és type E"
         break
     else:
         print("Ip no válida. Seleccione otro")
 while True:
-    if byte1 < 10 or byte1 >= 11 or byte1 <= 126:
-        print("pùblica")
+    byte2 = int(input("Dime el segon byte: "))
+    if byte1 == 10 :
+        tipus = "privada"
         break
-    elif byte1 > 127 or byte1 < 172 >= 173 or byte1 <= 191:
-        print("pùblica")
+    elif byte1 > 172 and byte2 >= 16 and byte2 <= 31:
+        tipus = "privada"
         break
-    elif byte1 > 192 <= 223:
-        print("pùblica")
+    elif byte1 == 192 and byte2 == 168:
+        tipus = "privada"
         break
     else:
-        print("privada")
+        tipus = "pública"
         break
+byte3 = int(input("Dime el tercer byte: "))
+byte4 = int(input("Dime el cuarto byte: "))
+print (f"la ip {byte1} {byte2} {byte3} {byte4} {type} y {tipus}")
