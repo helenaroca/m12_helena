@@ -92,8 +92,7 @@ else:
     grupo = 'B'
 
 print(f"Usted pertenece al grupo {grupo}.")
-# ###############################
-
+# #####################··
 # ###############################
 separador(7, "Escribir un programa que pregunte al usuario su renta anual y muestre por pantalla el tipo impositivo que le corresponde")
 renta_anual = float(input("Ingrese su renta anual en euros: "))
