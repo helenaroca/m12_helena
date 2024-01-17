@@ -166,7 +166,7 @@ print(asig_rep)
 # ############################### 
 
 # ###############################
-separador(6,"palindromo")
+separador(7,"palindromo")
 normal = input("digues una paraula ")
 
 inversa = normal [::-1]
