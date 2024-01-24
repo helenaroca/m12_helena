@@ -8,7 +8,7 @@ def separador(exercici, descripcio = None):
     print("#" * 25)
     print("\n")
 # ############################### 
-
+'''
 # ###############################
 separador(1,"Tu tarea es escribir y probar una función que toma un argumento (un año) y devuelve True si el año es un año bisiesto, o False si no lo es.")
 def is_year_leap(year):
@@ -99,9 +99,93 @@ def days_in_month(year, month):
     else:
         return days_per_month[month - 1]
 
-def day_of_year(year, month, day):
-#
-# Escribe tu código nuevo aquí.
-#
+def valid_date(year, month, day):
+    # Verificar si el año, mes y día son válidos
+    if year < 1 or month < 1 or month > 12 or day < 1 or day > days_in_month(year, month):
+        return False
+    else:
+        return True
 
-print(day_of_year(2000, 12, 31))
+def day_of_year(year, month, day):
+    # Verificar la validez de la fecha
+    if not valid_date(year, month, day):
+        return None
+
+    # Calcular el día del año
+    day_count = day
+    for m in range(1, month):
+        day_count += days_in_month(year, m)
+
+    return day_count
+
+# Ejemplo de uso
+print(day_of_year(2000, 1, 31))
+# ############################### 
+
+# ###############################
+separador(4.1,"teorema de pitàgores")
+
+import math
+
+# Función para calcular el cuadrado de un número
+def quadrat(num):
+    return num ** 2
+
+# Función para calcular la raíz cuadrada de un número
+def arrel(num):
+    return math.sqrt(num)
+
+# Función para aplicar el teorema de Pitágoras
+def pitagoras(c, a):
+    # Calcula el cuadrado de c
+    c_quadrat = quadrat(c)
+    
+    # Calcula el cuadrado de a
+    a_quadrat = quadrat(a)
+    
+    # Calcula la hipotenusa aplicando el teorema de Pitágoras
+    hipotenusa = arrel(c_quadrat + a_quadrat)
+    
+    return hipotenusa
+
+# Ejemplo de uso
+catet_c = 5
+catet_a = 5
+resultat = pitagoras(catet_c, catet_a)
+
+print(f"La hipotenusa del triángulo con catetos {catet_c} y {catet_a} es: {resultat}")
+# ############################### 
+
+# ###############################
+separador(4.2,"primo")
+
+numero = int(input("digues un número: "))
+def is_prime (num):
+     for i in range (2,num):
+          if num % i == 0:
+            return False
+          else:
+              return True
+resultat = is_prime(numero)
+print(resultat)
+
+# ############################### '''
+
+# ###############################
+separador(5,"automóvil")
+def liters_100km_to_miles_gallon(liters):
+    miles_per_gallon = 235.214583 / liters
+    return miles_per_gallon
+
+def miles_gallon_to_liters_100km(miles):
+    liters_per_100km = 235.214583 / miles
+    return liters_per_100km
+
+print(liters_100km_to_miles_gallon(3.9))
+print(liters_100km_to_miles_gallon(7.5))
+print(liters_100km_to_miles_gallon(10.))
+print(miles_gallon_to_liters_100km(60.3))
+print(miles_gallon_to_liters_100km(31.4))
+print(miles_gallon_to_liters_100km(23.5))
+
+
