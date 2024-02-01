@@ -8,7 +8,7 @@ def separador(exercici, descripcio = None):
     print("#" * 25)
     print("\n")
 # ############################### 
-'''
+
 # ###############################
 separador(1,"Tu tarea es escribir y probar una función que toma un argumento (un año) y devuelve True si el año es un año bisiesto, o False si no lo es.")
 def is_year_leap(year):
@@ -98,94 +98,201 @@ def days_in_month(year, month):
     # Devolver el número de días para otros meses
     else:
         return days_per_month[month - 1]
-
-def valid_date(year, month, day):
-    # Verificar si el año, mes y día son válidos
-    if year < 1 or month < 1 or month > 12 or day < 1 or day > days_in_month(year, month):
-        return False
-    else:
-        return True
-
-def day_of_year(year, month, day):
-    # Verificar la validez de la fecha
-    if not valid_date(year, month, day):
-        return None
-
-    # Calcular el día del año
-    day_count = day
-    for m in range(1, month):
-        day_count += days_in_month(year, m)
-
-    return day_count
-
-# Ejemplo de uso
-print(day_of_year(2000, 1, 31))
 # ############################### 
 
 # ###############################
-separador(4.1,"teorema de pitàgores")
-
-import math
-
-# Función para calcular el cuadrado de un número
+separador(4,"teorema de pitàgores")
 def quadrat(num):
+    """
+    Calcula el quadrat d'un número.
+    
+    :param num: Número per al qual es vol calcular el quadrat.
+    :return: Quadrat del número proporcionat.
+    """
     return num ** 2
 
-# Función para calcular la raíz cuadrada de un número
 def arrel(num):
-    return math.sqrt(num)
+    """
+    Calcula l'arrel quadrada d'un número.
+    
+    :param num: Número per al qual es vol calcular l'arrel quadrada.
+    :return: Arrel quadrada del número proporcionat.
+    """
+    return num ** 0.5
 
-# Función para aplicar el teorema de Pitágoras
 def pitagoras(c, a):
-    # Calcula el cuadrado de c
-    c_quadrat = quadrat(c)
+    """
+    Calcula la hipotenusa d'un triangle rectangle utilitzant el teorema de Pitàgores.
     
-    # Calcula el cuadrado de a
-    a_quadrat = quadrat(a)
-    
-    # Calcula la hipotenusa aplicando el teorema de Pitágoras
-    hipotenusa = arrel(c_quadrat + a_quadrat)
-    
+    :param c: Longitud del catet c.
+    :param a: Longitud del catet a.
+    :return: Longitud de la hipotenusa.
+    """
+    hipotenusa_quadrat = quadrat(c) + quadrat(a)
+    hipotenusa = arrel(hipotenusa_quadrat)
     return hipotenusa
 
-# Ejemplo de uso
-catet_c = 5
-catet_a = 5
-resultat = pitagoras(catet_c, catet_a)
-
-print(f"La hipotenusa del triángulo con catetos {catet_c} y {catet_a} es: {resultat}")
+# Exemple d'ús:
+catet_c = 3
+catet_a = 4
+hipotenusa = pitagoras(catet_c, catet_a)
+print(f"Per a un triangle rectangle amb catets {catet_c} i {catet_a}, l'hipotenusa és {hipotenusa}")
 # ############################### 
 
 # ###############################
-separador(4.2,"primo")
+separador(5,"primo o no")
 
-numero = int(input("digues un número: "))
-def is_prime (num):
-     for i in range (2,num):
-          if num % i == 0:
-            return False
-          else:
-              return True
-resultat = is_prime(numero)
-print(resultat)
+def is_prime(num):
+    """
+    Verifica si un número es primo o no.
 
-# ############################### '''
+    :param num: Número a verificar.
+    :return: True si el número es primo, False de lo contrario.
+    """
+    if num <= 1:
+        return False  # Los números menores o iguales a 1 no son primos
+
+    # Verifica si hay algún divisor en el rango de 2 a la raíz cuadrada del número
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False  # Si encontramos un divisor, el número no es primo
+
+    return True  # Si no se encontraron divisores, el número es primo
+
+# Probamos la función con números del 1 al 20
+for i in range(1, 20):
+    if is_prime(i + 1):
+        print(i + 1, end=" ")
+
+print()
+# ############################### 
 
 # ###############################
-separador(5,"automóvil")
-def liters_100km_to_miles_gallon(liters):
-    miles_per_gallon = 235.214583 / liters
-    return miles_per_gallon
+separador(7,"área circulo")
+import math
 
-def miles_gallon_to_liters_100km(miles):
-    liters_per_100km = 235.214583 / miles
-    return liters_per_100km
+def area_circulo(radio):
+    """
+    Calcula el área de un círculo.
 
-print(liters_100km_to_miles_gallon(3.9))
-print(liters_100km_to_miles_gallon(7.5))
-print(liters_100km_to_miles_gallon(10.))
-print(miles_gallon_to_liters_100km(60.3))
-print(miles_gallon_to_liters_100km(31.4))
-print(miles_gallon_to_liters_100km(23.5))
+    :param radio: Radio del círculo.
+    :return: Área del círculo.
+    """
+    return math.pi * radio**2
 
+def volumen_cilindro(radio, altura):
+    """
+    Calcula el volumen de un cilindro.
 
+    :param radio: Radio de la base del cilindro.
+    :param altura: Altura del cilindro.
+    :return: Volumen del cilindro.
+    """
+    area_base = area_circulo(radio)
+    volumen = area_base * altura
+    return volumen
+
+# Ejemplo de uso:
+radio_circulo = 5
+altura_cilindro = 10
+
+area_del_circulo = area_circulo(radio_circulo)
+volumen_del_cilindro = volumen_cilindro(radio_circulo, altura_cilindro)
+
+print(f"Área del círculo con radio {radio_circulo}: {area_del_circulo}")
+print(f"Volumen del cilindro con radio {radio_circulo} y altura {altura_cilindro}: {volumen_del_cilindro}")
+# ############################### 
+
+# ###############################
+separador(7,"decimal a binario")
+def decimal_a_binario(decimal):
+    """
+    Convierte un número decimal a binario.
+
+    :param decimal: Número decimal a convertir.
+    :return: Representación binaria del número decimal.
+    """
+    if decimal < 0:
+        return "Solo se admiten números no negativos."
+
+    if decimal == 0:
+        return "0b0"
+
+    binario = ""
+    while decimal > 0:
+        binario = str(decimal % 2) + binario
+        decimal = decimal // 2
+
+    return "0b" + binario
+
+def binario_a_decimal(binario):
+    """
+    Convierte un número binario a decimal.
+
+    :param binario: Número binario a convertir.
+    :return: Número decimal.
+    """
+    if not binario.startswith("0b"):
+        return "Formato binario no válido."
+
+    binario = binario[2:]
+    decimal = 0
+    longitud = len(binario)
+
+    for i in range(longitud):
+        bit = int(binario[i])
+        exponente = longitud - i - 1
+        decimal += bit * (2 ** exponente)
+
+    return decimal
+
+# Ejemplos de uso:
+numero_decimal = 23
+numero_binario = "0b10111"
+
+resultado_binario = decimal_a_binario(numero_decimal)
+resultado_decimal = binario_a_decimal(numero_binario)
+
+print(f"{numero_decimal} en binario: {resultado_binario}")
+print(f"{numero_binario} en decimal: {resultado_decimal}")
+# ############################### 
+
+# ###############################
+separador(7,"treu vocals")
+def es_vocal(letra):
+    """
+    Verifica si una letra es vocal.
+
+    :param letra: Letra a verificar.
+    :return: True si es vocal, False de lo contrario.
+    """
+    vocales = "aeiouAEIOU"
+    return letra in vocales
+
+def treu_vocals(palabra):
+    """
+    Elimina las vocales de una palabra.
+
+    :param palabra: Palabra de entrada.
+    :return: Palabra sin vocales.
+    """
+    return ''.join(letra for letra in palabra if not es_vocal(letra))
+
+def treu_consonants(palabra):
+    """
+    Elimina las consonantes de una palabra.
+
+    :param palabra: Palabra de entrada.
+    :return: Palabra sin consonantes.
+    """
+    return ''.join(letra for letra in palabra if es_vocal(letra))
+
+# Ejemplos de uso:
+palabra_entrada = "HolaMundo"
+
+palabra_sin_vocales = treu_vocals(palabra_entrada)
+palabra_sin_consonantes = treu_consonants(palabra_entrada)
+
+print(f"Palabra original: {palabra_entrada}")
+print(f"Palabra sin vocales: {palabra_sin_vocales}")
+print(f"Palabra sin consonantes: {palabra_sin_consonantes}")
